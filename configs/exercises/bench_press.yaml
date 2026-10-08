@@ -1,0 +1,42 @@
+# Bench press. Best camera view: side on, whole body on the bench in frame.
+name: bench_press
+display: Bench press
+posture: lying
+camera: Side on, the bench and the bar in frame
+signal: elbow_flexion
+reps: {prior: [15, 85], min_rom: 30}
+aliases: [bench_pressing, benchpressing, benchpress, bench]
+rules:
+  - id: depth
+    fault: Bar not reaching the chest
+    cue: Touch the bar to your chest
+    metric: elbow_flexion
+    agg: max
+    min: 70
+    scale: 25
+    weight: 25
+  - id: lockout
+    fault: Not locking out
+    cue: Press to full arm extension
+    metric: elbow_flexion
+    agg: end
+    max: 25
+    scale: 20
+    weight: 20
+  - id: uneven
+    fault: Pressing unevenly
+    view: front                 # needs both sides visible: skipped when filmed side-on
+    cue: Press both sides evenly
+    metric: elbow_flexion_asym
+    agg: p90
+    max: 18
+    scale: 15
+    weight: 20
+  - id: tempo
+    type: tempo
+    fault: Bouncing off the chest
+    cue: Lower the bar under control
+    phase: out
+    min: 0.6
+    scale: 0.4
+    weight: 15

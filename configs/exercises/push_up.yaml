@@ -1,0 +1,53 @@
+# Push-up. Best camera view: side on, whole body in frame, camera at floor height.
+name: push_up
+display: Push-up
+posture: horizontal
+camera: Side on, camera low, whole body in frame
+signal: elbow_flexion
+reps: {prior: [15, 90], min_rom: 30}
+aliases: [pushup, pushups, push_ups, press_up]
+rules:
+  - id: depth
+    fault: Not going low enough
+    cue: Chest to the floor - bend your elbows to 90
+    metric: elbow_flexion
+    agg: max
+    min: 70
+    scale: 25
+    weight: 25
+  - id: hip_sag
+    fault: Hips sagging
+    cue: Squeeze your glutes - straight line head to heels
+    metric: body_line
+    joints: [pelvis]
+    agg: p90
+    max: 18
+    scale: 15
+    weight: 30
+    live: true
+  - id: pike
+    fault: Hips piking up
+    cue: Lower your hips into a straight line
+    metric: body_line
+    joints: [pelvis]
+    agg: p10
+    min: -22
+    scale: 15
+    weight: 20
+  - id: lockout
+    fault: Not locking out
+    cue: Push all the way up
+    metric: elbow_flexion
+    agg: end
+    max: 30
+    scale: 20
+    weight: 15
+  - id: uneven
+    fault: Pushing unevenly
+    view: front                 # needs both sides visible: skipped when filmed side-on
+    cue: Press evenly with both arms
+    metric: elbow_flexion_asym
+    agg: p90
+    max: 20
+    scale: 15
+    weight: 10

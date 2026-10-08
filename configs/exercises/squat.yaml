@@ -1,0 +1,67 @@
+# Back / goblet / bodyweight squat. Best camera view: front or 45 degrees, whole body in frame.
+name: squat
+display: Squat
+posture: standing
+camera: Front or 45 degrees, whole body in frame
+signal: knee_flexion          # mean of both knees; rises as you descend
+reps: {prior: [15, 100], min_rom: 30}
+aliases: [squant, squats, goblet_squat, air_squat]
+rules:
+  - id: depth
+    fault: Squat too shallow
+    cue: Sit deeper - hips down to knee level
+    metric: hip_depth           # hip height above the knees, in thigh lengths
+    agg: min
+    max: 0.20
+    scale: 0.40
+    weight: 25
+  - id: knee_valgus
+    fault: Knees caving in
+    view: front                 # needs both sides visible: skipped when filmed side-on
+    cue: Push your knees out over your toes
+    metric: knee_ankle_ratio    # knee separation / ankle separation (KASR); 1 = knees over ankles
+    sides: [knee_medial_l, knee_medial_r]   # which knee caves more
+    joints: [l_knee, r_knee]
+    agg: p10
+    phase: bottom               # only meaningful at depth: a wide stance has knees inside the ankles when standing
+    min: 0.75
+    scale: 0.25
+    weight: 30
+    live: true
+  - id: chest_drop
+    fault: Chest dropping forward
+    cue: Keep your chest up
+    metric: trunk_inclination
+    joints: [thorax, spine]
+    agg: max
+    max: 55
+    scale: 20
+    weight: 20
+    live: true
+  - id: rounded_back
+    fault: Lower back rounding
+    cue: Brace your core and keep a neutral spine
+    metric: spine_flexion
+    joints: [spine, thorax]
+    agg: rise                   # increase over the rep, relative to the starting posture
+    max: 22
+    scale: 15
+    weight: 20
+  - id: shift
+    fault: Shifting to one side
+    view: front                 # needs both sides visible: skipped when filmed side-on
+    cue: Spread the weight evenly over both feet
+    metric: knee_flexion_asym
+    agg: p90
+    phase: [down, bottom, up]
+    max: 15
+    scale: 15
+    weight: 15
+  - id: tempo
+    type: tempo
+    fault: Dropping too fast
+    cue: Control the descent
+    phase: out
+    min: 0.6
+    scale: 0.4
+    weight: 10

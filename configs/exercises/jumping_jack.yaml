@@ -1,0 +1,34 @@
+# Jumping jacks. Best camera view: front, whole body in frame.
+name: jumping_jack
+display: Jumping jack
+posture: standing
+camera: Front, whole body in frame
+signal: arm_elevation
+reps: {prior: [20, 150], min_rom: 50, min_rep_s: 0.3}
+aliases: [jump_jack, jumpjacks, jumping_jacks, star_jump]
+rules:
+  - id: arms
+    fault: Arms not reaching overhead
+    cue: Reach your arms all the way up
+    metric: arm_elevation
+    agg: max
+    min: 135
+    scale: 30
+    weight: 30
+  - id: feet
+    fault: Feet not jumping wide
+    cue: Jump your feet wider
+    metric: stance_ratio
+    agg: max
+    min: 1.6
+    scale: 0.6
+    weight: 30
+  - id: uneven
+    fault: Arms uneven
+    view: front                 # needs both sides visible: skipped when filmed side-on
+    cue: Raise both arms together
+    metric: arm_elevation_asym
+    agg: p90
+    max: 25
+    scale: 20
+    weight: 15

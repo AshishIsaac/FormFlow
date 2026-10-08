@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#141413">
+<title>FormFlow</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232f6fd6'/%3E%3Cpath d='M16 6a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm-6 9h12l-3 3v4l3 6h-3l-3-5-3 5h-3l3-6v-4z' fill='white'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="logo" aria-hidden="true"></span>FormFlow<span class="tag">3D form coach</span></div>
+  <nav class="tabs" role="tablist">
+    <button role="tab" data-tab="coach" aria-selected="true">Coach</button>
+    <button role="tab" data-tab="analyze" aria-selected="false">Analyze video</button>
+    <button role="tab" data-tab="sessions" aria-selected="false">Sessions</button>
+  </nav>
+  <div class="status" id="status" title="model status"><span class="dot"></span><span id="statusText">connecting...</span></div>
+</header>
+
+<main>
+<!-- ============================================================ COACH -->
+<section id="tab-coach" class="tab active">
+  <div class="controls">
+    <label>Exercise <select id="exercise"></select></label>
+    <label>Source <select id="source">
+      <option value="user">Camera (front)</option>
+      <option value="environment">Camera (back)</option>
+    </select></label>
+    <button id="startBtn" class="primary">Start</button>
+    <button id="finishBtn" disabled>Finish set</button>
+    <label class="toggle"><input type="checkbox" id="speak" checked> Spoken cues</label>
+  </div>
+  <p class="hint" id="cameraHint"></p>
+
+  <div class="coach-grid">
+    <div class="stage-wrap">
+      <div class="stage" id="stage">
+        <video id="video" playsinline muted></video>
+        <canvas id="overlay"></canvas>
+        <div class="hud">
+          <div class="count"><b id="count">0</b><span>reps</span></div>
+          <div class="phase" id="phase">LOCKOUT</div>
+        </div>
+        <div class="cue" id="cue" hidden></div>
+        <div class="placeholder" id="placeholder">
+          <p><b>Press Start</b> and step back until your whole body is in the picture.</p>
+          <p class="muted" id="adviceText"></p>
+        </div>
+        <div class="perf" id="perf"></div>
+      </div>
+      <div class="chart-card">
+        <div class="card-title">Rep signal <span class="muted" id="signalName"></span></div>
+        <canvas id="signal" height="110"></canvas>
+      </div>
+    </div>
+
+    <aside class="side">
+      <div class="card last-rep" id="lastRep">
+        <div class="card-title">Last rep</div>
+        <div class="score" id="lastScore">-</div>
+        <div id="lastFault" class="muted">Faults and cues appear here after each rep.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">3D skeleton <span class="muted">drag to rotate</span></div>
+        <canvas id="view3d" height="260"></canvas>
+      </div>
+      <div class="card">
+        <div class="card-title">Joint angles</div>
+        <dl class="angles" id="angles"></dl>
+      </div>
+      <div class="card">
+        <div class="card-title">This set</div>
+        <ol class="reps" id="repList"></ol>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ============================================================ ANALYZE -->
+<section id="tab-analyze" class="tab">
+  <div class="card upload">
+    <h2>Analyse a recorded set</h2>
+    <p class="muted">Upload a video of one set. FormFlow counts the reps, scores each one, names the faults and
+      renders an annotated copy. Whole-clip analysis is a little more accurate than live coaching.</p>
+    <form id="uploadForm">
+      <label>Video <input type="file" id="file" accept="video/*" required></label>
+      <label>Exercise <select id="exercise2"></select></label>
+      <button class="primary" type="submit" id="uploadBtn">Analyse</button>
+    </form>
+    <div class="progress" id="progress" hidden><div class="bar"><i id="bar"></i></div><span id="progressText"></span></div>
+  </div>
+  <div id="result"></div>
+  <div class="card" id="samplesCard" hidden>
+    <h2>Example results</h2>
+    <div class="samples" id="samples"></div>
+  </div>
+</section>
+
+<!-- ============================================================ SESSIONS -->
+<section id="tab-sessions" class="tab">
+  <div class="sessions" id="sessions"></div>
+</section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

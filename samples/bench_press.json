@@ -1,0 +1,21 @@
+{
+ "title": "Bench press",
+ "exercise": "bench_press",
+ "video": "bench_press.mp4",
+ "source": "https://commons.wikimedia.org/wiki/File:Bench_press_-_exercise_demonstration_video.webm",
+ "license": "CC BY 3.0",
+ "license_url": "https://creativecommons.org/licenses/by/3.0",
+ "author": "FitnessScape",
+ "trim": {
+  "start_s": 0,
+  "duration_s": null
+ },
+ "modifications": "trimmed, scaled to 720p, re-encoded (H.264), audio removed",
+ "annotated": "bench_press_annotated.mp4",
+ "reps": 1,
+ "mean_score": 89.3,
+ "faults": [
+  "Pressing unevenly (1/1)"
+ ],
+ "note": "1 reps, score 89.3"
+}

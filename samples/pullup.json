@@ -1,0 +1,21 @@
+{
+ "title": "Pull-ups (rear view)",
+ "exercise": "pull_up",
+ "video": "pullup.mp4",
+ "source": "https://commons.wikimedia.org/wiki/File:Pull-ups_-_exercise_demonstration_video.webm",
+ "license": "CC BY 3.0",
+ "license_url": "https://creativecommons.org/licenses/by/3.0",
+ "author": "FitnessScape",
+ "trim": {
+  "start_s": 0,
+  "duration_s": null
+ },
+ "modifications": "trimmed, scaled to 720p, re-encoded (H.264), audio removed",
+ "annotated": "pullup_annotated.mp4",
+ "reps": 1,
+ "mean_score": 82.3,
+ "faults": [
+  "Not starting from a dead hang (1/1)"
+ ],
+ "note": "1 reps, score 82.3"
+}

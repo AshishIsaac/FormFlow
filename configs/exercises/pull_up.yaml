@@ -1,0 +1,34 @@
+# Pull-up / chin-up. Best camera view: front or behind, whole body in frame.
+name: pull_up
+display: Pull-up
+posture: hanging
+camera: Front or behind, whole body and the bar in frame
+signal: elbow_flexion
+reps: {prior: [15, 110], min_rom: 35}
+aliases: [pullup, pullups, pull_ups, chin_up, chinup]
+rules:
+  - id: height
+    fault: Not pulling high enough
+    cue: Pull your chin over the bar
+    metric: elbow_flexion
+    agg: max
+    min: 100
+    scale: 30
+    weight: 30
+  - id: dead_hang
+    fault: Not starting from a dead hang
+    cue: Straighten your arms fully at the bottom
+    metric: elbow_flexion
+    agg: start
+    max: 35
+    scale: 25
+    weight: 20
+  - id: kipping
+    fault: Kipping / swinging
+    cue: Keep your legs still and your core tight
+    metric: hip_flexion
+    joints: [pelvis]
+    agg: range
+    max: 35
+    scale: 25
+    weight: 20

@@ -1,0 +1,73 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "formflow"
+version = "1.0.0"
+description = "Markerless 3D human pose and biomechanics coach: live 3D skeleton from one camera, rep counting, joint angles and named form faults with spoken cues."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Ashish V Isaac" }]
+keywords = ["pose-estimation", "3d-human-pose", "motionbert", "rtmpose", "biomechanics", "fitness", "rep-counting",
+            "one-euro-filter", "computer-vision", "exercise", "coaching", "onnxruntime"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Scientific/Engineering :: Image Recognition",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+]
+# torch and onnxruntime are NOT listed here: run.py installs the right builds (CUDA or CPU) from
+# requirements/*.txt first - onnxruntime and onnxruntime-gpu are the same module and cannot coexist.
+# Upper bounds keep a fresh clone on versions this repo was verified with.
+dependencies = [
+    "numpy>=1.26,<3",
+    "opencv-python>=4.9,<6",
+    "PyYAML>=6.0,<7",
+    "fastapi>=0.110,<1",
+    "uvicorn>=0.29,<1",
+    "websockets>=12,<17",  # uvicorn's WebSocket backend (the live coaching channel)
+    "python-multipart>=0.0.9,<1",
+    "imageio-ffmpeg>=0.5,<1",
+    "cryptography>=42,<47",
+]
+
+[project.urls]
+Homepage = "https://github.com/AshishIsaac/FormFlow"
+Repository = "https://github.com/AshishIsaac/FormFlow.git"
+Issues = "https://github.com/AshishIsaac/FormFlow/issues"
+
+[project.optional-dependencies]
+# RepCount-A is published as a Lance dataset.
+bench = ["pylance>=0.20"]
+browser = ["playwright>=1.45,<2"]
+dev = ["pytest>=7.4", "ruff>=0.6", "httpx>=0.27"]
+
+[project.scripts]
+formflow = "formflow.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+formflow = ["server/static/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q -ra"
+markers = [
+    "models: needs the downloaded pose / lifting models (python run.py once, or formflow models download)",
+    "data: needs a downloaded benchmark dataset",
+    "browser: needs Chrome/Edge and playwright",
+]
+filterwarnings = ["ignore::DeprecationWarning", "ignore::FutureWarning", "ignore::UserWarning"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+src = ["src", "tests", "scripts"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "NPY"]
+ignore = ["E501", "B905", "SIM108", "E741", "E731", "B008"]

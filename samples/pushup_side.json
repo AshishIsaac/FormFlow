@@ -1,0 +1,21 @@
+{
+ "title": "Hand-release push-ups (side view, bystanders)",
+ "exercise": "push_up",
+ "video": "pushup_side.mp4",
+ "source": "https://commons.wikimedia.org/wiki/File:Army_Combat_Fitness_Test-_Hand-Release_Push-Up_(HRP)_(Event_3).webm",
+ "license": "Public domain",
+ "license_url": "",
+ "author": "Army Combat Fitness Test",
+ "trim": {
+  "start_s": 31,
+  "duration_s": 24
+ },
+ "modifications": "trimmed, scaled to 720p, re-encoded (H.264), audio removed",
+ "annotated": "pushup_side_annotated.mp4",
+ "reps": 2,
+ "mean_score": 91.9,
+ "faults": [
+  "Hips sagging (1/2)"
+ ],
+ "note": "2 reps, score 91.9"
+}

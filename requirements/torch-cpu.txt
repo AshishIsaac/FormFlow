@@ -1,0 +1,6 @@
+# PyTorch, CPU-only build (no NVIDIA GPU, or `python run.py --cpu`). The exact build (+cpu) is pinned on
+# Windows / Linux so switching profiles replaces the CUDA build; macOS wheels have no local version label.
+--index-url https://download.pytorch.org/whl/cpu
+--extra-index-url https://pypi.org/simple
+torch==2.14.1+cpu; sys_platform != "darwin"
+torch==2.14.1; sys_platform == "darwin"

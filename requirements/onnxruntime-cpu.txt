@@ -1,0 +1,2 @@
+# ONNX Runtime, CPU build (no NVIDIA GPU, macOS, or `python run.py --cpu`).
+onnxruntime>=1.20,<2

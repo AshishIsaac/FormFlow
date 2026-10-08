@@ -1,0 +1,25 @@
+# Sit-up / crunch. Best camera view: side on, camera low.
+name: situp
+display: Sit-up
+posture: lying
+camera: Side on, camera low, whole body in frame
+signal: hip_flexion
+reps: {prior: [40, 110], min_rom: 30}
+aliases: [situps, sit_up, sit_ups]
+rules:
+  - id: range
+    fault: Not sitting up fully
+    cue: Curl all the way up
+    metric: hip_flexion
+    agg: max
+    min: 95
+    scale: 25
+    weight: 30
+  - id: tempo
+    type: tempo
+    fault: Flopping back down
+    cue: Lower yourself with control
+    phase: back
+    min: 0.5
+    scale: 0.4
+    weight: 15

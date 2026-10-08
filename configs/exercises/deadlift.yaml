@@ -1,0 +1,56 @@
+# Conventional / Romanian deadlift. Best camera view: side on (90 degrees), whole body in frame.
+name: deadlift
+display: Deadlift
+posture: standing
+camera: Side on, whole body and the bar in frame
+signal: hip_flexion           # trunk-to-thigh angle; rises as you hinge down
+reps: {prior: [10, 75], min_rom: 30}
+aliases: [rdl, romanian_deadlift]
+rules:
+  - id: rounded_back
+    fault: Rounded back
+    cue: Chest proud, flat back - brace before you pull
+    metric: spine_flexion
+    joints: [spine, thorax, neck]
+    agg: rise
+    max: 18
+    scale: 15
+    weight: 35
+    live: true
+  - id: hips_shoot_up
+    type: ratio
+    fault: Hips shooting up first
+    cue: Push the floor away - hips and chest rise together
+    a: knee_flexion             # how fast the knees straighten...
+    b: hip_flexion              # ...versus the hips, early in the pull
+    phase: up
+    frac: 0.4
+    max: 1.6
+    scale: 1.5
+    weight: 25
+  - id: lockout
+    fault: Incomplete lockout
+    cue: Squeeze your glutes and stand tall at the top
+    metric: hip_flexion
+    joints: [l_hip, r_hip]
+    agg: end
+    max: 25                     # standing tall reads ~7 deg in H36M mocap (90th pct 14); margin for lifter error
+    scale: 15
+    weight: 20
+  - id: shift
+    fault: Uneven hips
+    view: front                 # needs both sides visible: skipped when filmed side-on
+    cue: Keep your hips square
+    metric: hip_flexion_asym
+    agg: p90
+    max: 15
+    scale: 15
+    weight: 10
+  - id: tempo
+    type: tempo
+    fault: Dropping the weight
+    cue: Lower the bar under control
+    phase: out                  # the hinge down
+    min: 0.5
+    scale: 0.4
+    weight: 10

@@ -1,0 +1,47 @@
+# Forward / reverse / split-squat lunge. Best camera view: 45 degrees or side on.
+name: lunge
+display: Lunge
+posture: standing
+camera: 45 degrees or side on, whole body in frame
+signal: knee_flexion_max      # the front knee
+reps: {prior: [15, 90], min_rom: 30}
+aliases: [lunges, split_squat]
+rules:
+  - id: depth
+    fault: Lunge too shallow
+    cue: Drop your back knee toward the floor
+    metric: knee_flexion_max
+    agg: max
+    min: 75
+    scale: 25
+    weight: 25
+  - id: knee_valgus
+    fault: Front knee caving in
+    view: front                 # needs both sides visible: skipped when filmed side-on
+    cue: Keep your front knee over your middle toes
+    metric: knee_medial_max     # knee drift inside the hip-ankle line, % of leg length
+    sides: [knee_medial_l, knee_medial_r]
+    joints: [l_knee, r_knee]
+    agg: p90
+    phase: [down, bottom, up]
+    max: 4.0
+    scale: 4.0
+    weight: 30
+    live: true
+  - id: lean
+    fault: Leaning forward
+    cue: Torso tall over your hips
+    metric: trunk_inclination
+    joints: [thorax]
+    agg: max
+    max: 30
+    scale: 20
+    weight: 20
+  - id: tempo
+    type: tempo
+    fault: Rushing the rep
+    cue: Slow and controlled
+    phase: total
+    min: 1.0
+    scale: 0.6
+    weight: 10

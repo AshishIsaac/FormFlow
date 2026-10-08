@@ -1,0 +1,44 @@
+# Standing overhead (shoulder) press. Best camera view: side on or 45 degrees.
+name: overhead_press
+display: Overhead press
+posture: standing
+camera: Side on or 45 degrees, whole body in frame
+signal: arm_elevation
+reps: {prior: [70, 165], min_rom: 40}
+aliases: [ohp, shoulder_press, military_press]
+rules:
+  - id: lockout
+    fault: Not locking out overhead
+    cue: Press all the way up, biceps by your ears
+    metric: arm_elevation
+    agg: max
+    min: 150
+    scale: 25
+    weight: 25
+  - id: lean_back
+    fault: Leaning back
+    cue: Squeeze your glutes - ribs down
+    metric: trunk_inclination
+    joints: [thorax, pelvis]
+    agg: max
+    max: 15
+    scale: 12
+    weight: 30
+    live: true
+  - id: uneven
+    fault: Pressing unevenly
+    view: front                 # needs both sides visible: skipped when filmed side-on
+    cue: Drive both arms up together
+    metric: arm_elevation_asym
+    agg: p90
+    max: 18
+    scale: 15
+    weight: 15
+  - id: elbows_bent
+    fault: Arms bent at the top
+    cue: Straighten your arms at the top
+    metric: elbow_flexion
+    agg: min
+    max: 25
+    scale: 20
+    weight: 15

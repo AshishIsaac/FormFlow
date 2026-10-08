@@ -1,0 +1,11 @@
+# Unknown / any repetitive movement: count reps on whichever joint signal oscillates most clearly.
+# No form rules (they need to know the exercise).
+name: auto
+display: Any exercise (auto)
+posture: any
+camera: Whole body in frame
+signal: auto
+candidates: [knee_flexion, hip_flexion, elbow_flexion, arm_elevation, trunk_inclination]
+reps: {min_rom: 25}
+aliases: [others, pommelhorse, unknown]
+rules: []

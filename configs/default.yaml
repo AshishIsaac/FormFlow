@@ -1,0 +1,38 @@
+# FormFlow runtime settings. Override any key on the command line: formflow live --set live.window=27
+device: auto              # auto | cuda | cpu   (ONNX Runtime and PyTorch both follow it)
+detector: auto            # auto = yolox-m on a GPU, yolox-tiny on a CPU
+pose2d: rtmpose-m
+lifter: motionbert-lite   # as accurate as motionbert-full on H36M (8.2 vs 8.4 deg offline), 2x faster; -full also available
+up: auto                  # auto = learn gravity from the standing pose (tilted phones) | camera
+
+one_euro:                 # jitter filter on the 2D keypoints (Casiez et al. 2012) - drawing; see live.one_euro_2d_lift
+  min_cutoff: 1.5         # Hz - lower = smoother when still, but more lag
+  beta: 0.1               # how fast the cutoff opens with speed - higher = less lag in fast moves
+  d_cutoff: 1.0
+
+live:                     # camera / webcam coaching (causal: only past frames)
+  one_euro_3d: {min_cutoff: 1.5, beta: 0.01}   # smooths the lifted skeleton (4x less jitter)
+  one_euro_2d_lift: false # lift from raw 2D; the 2D filter (above) only smooths the drawn overlay - its lag costs accuracy
+  window: 81              # frames the lifter sees (27 | 81 | 243)
+  stride: 2               # lifter runs every N frames, finalising N poses per run
+  half: true              # float16 lifter on the GPU
+  flip: false             # flip test-time augmentation (2x lifter cost)
+  det_every: 10           # re-run the person detector every N frames (tracking in between)
+  max_side: 960           # downscale camera frames larger than this before pose estimation
+
+live_cpu:                 # replaces keys of `live` when running without a GPU (MotionBERT-Lite on a CPU)
+  window: 27
+  stride: 3
+  det_every: 15
+
+offline:                  # analysing a recorded video (sees the whole clip)
+  window: 243
+  overlap: 0.5
+  flip: true
+  half: false
+  det_every: 5
+  one_euro_2d: false      # with future frames the lifter is already smooth; the filter only adds lag (8.40 -> 8.56 deg)
+
+server:
+  host: 127.0.0.1
+  port: 8780

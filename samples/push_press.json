@@ -1,0 +1,23 @@
+{
+ "title": "Kettlebell push press",
+ "exercise": "overhead_press",
+ "video": "push_press.mp4",
+ "source": "https://commons.wikimedia.org/wiki/File:Strength_Training_Circuit-_Overhead_Push_Press.webm",
+ "license": "Public domain",
+ "license_url": "",
+ "author": "Army Combat Fitness Test",
+ "trim": {
+  "start_s": 30,
+  "duration_s": 16
+ },
+ "modifications": "trimmed, scaled to 720p, re-encoded (H.264), audio removed",
+ "annotated": "push_press_annotated.mp4",
+ "reps": 2,
+ "mean_score": 51.5,
+ "faults": [
+  "Leaning back (2/2)",
+  "Not locking out overhead (1/2)",
+  "Arms bent at the top (1/2)"
+ ],
+ "note": "2 reps, score 51.5"
+}

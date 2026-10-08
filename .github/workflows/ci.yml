@@ -1,0 +1,90 @@
+name: ci
+
+# What runs where (free GitHub runners have no GPU):
+#   lint     every push / PR   ruff + the web app's JavaScript parses
+#   test     every push / PR   angles, One Euro, rep state machine, rule engine, coach on synthetic athletes,
+#                              MotionBERT port, launcher, API; Linux & Windows, Python 3.10 & 3.12, CPU builds
+#   models   every push / PR   the REAL models on CPU: downloads YOLOX / RTMPose / MotionBERT-Lite, runs doctor,
+#                              lifts projected synthetic squats, analyses a sample video end to end
+#   docker   every push / PR   the image builds and the web app answers
+# The full benchmarks (H36M joint angles, RepCount) need a GPU and datasets: `formflow bench ...` (see README).
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install "ruff>=0.6"
+      - run: ruff check src tests run.py scripts --target-version py310
+      - name: Web app JavaScript parses
+        run: node --check src/formflow/server/static/app.js
+
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+      - run: pip install -r requirements/torch-cpu.txt -r requirements/onnxruntime-cpu.txt
+      - run: pip install -e ".[dev]"
+      - name: Unit, coach, lifter-port, launcher and API tests
+        run: pytest -m "not models and not data and not browser" --durations=10
+
+  models:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      FORMFLOW_HOME: ${{ github.workspace }}/ci-workspace
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - run: sudo apt-get update && sudo apt-get install -y --no-install-recommends libgl1
+      - run: pip install -r requirements/torch-cpu.txt -r requirements/onnxruntime-cpu.txt && pip install -e ".[dev]"
+      - uses: actions/cache@v4
+        with:
+          path: ci-workspace/models
+          key: models-${{ hashFiles('src/formflow/data/download.py') }}
+      - run: formflow models download --profile cpu
+      - run: formflow doctor --set device=cpu
+      - name: Real-model tests (lifter on projected synthetic squats, 2D on a sample video, analysis end to end)
+        run: pytest -m models -rs --durations=10
+      - name: Analyse a sample video on the CPU
+        run: |
+          formflow analyze samples/squat_barbell.mp4 -e squat -o ci-out --set device=cpu
+          python -c "import json; r=json.load(open('ci-out/report.json')); print(r['summary']['reps'], 'reps'); assert r['summary']['reps'] >= 2"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ci-analysis
+          path: ci-out/
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -f docker/Dockerfile --build-arg PROFILE=cpu -t formflow:ci .
+      - name: Web app answers
+        run: |
+          docker run -d --name ff -p 8780:8780 -e FORMFLOW_SKIP_SETUP=1 formflow:ci
+          for i in $(seq 1 60); do curl -sf http://localhost:8780/api/health && break; sleep 2; done
+          curl -sf http://localhost:8780/api/exercises | grep -q squat
+          curl -sf http://localhost:8780/ | grep -q FormFlow

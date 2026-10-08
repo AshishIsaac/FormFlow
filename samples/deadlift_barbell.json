@@ -1,0 +1,19 @@
+{
+ "title": "Barbell deadlift (rear view)",
+ "exercise": "deadlift",
+ "video": "deadlift_barbell.mp4",
+ "source": "https://commons.wikimedia.org/wiki/File:Deadlift_-_exercise_demonstration_video.webm",
+ "license": "CC BY 3.0",
+ "license_url": "https://creativecommons.org/licenses/by/3.0",
+ "author": "FitnessScape",
+ "trim": {
+  "start_s": 0,
+  "duration_s": null
+ },
+ "modifications": "trimmed, scaled to 720p, re-encoded (H.264), audio removed",
+ "annotated": "deadlift_barbell_annotated.mp4",
+ "reps": 2,
+ "mean_score": 100.0,
+ "faults": [],
+ "note": "2 reps, score 100.0"
+}

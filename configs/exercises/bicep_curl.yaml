@@ -1,0 +1,52 @@
+# Dumbbell / barbell biceps curl. Best camera view: side on or 45 degrees.
+name: bicep_curl
+display: Biceps curl
+posture: standing
+camera: Side on or 45 degrees, upper body in frame
+signal: elbow_flexion_max     # works for alternating and two-arm curls
+reps: {prior: [20, 120], min_rom: 40}
+aliases: [curl, curls, biceps_curl, dumbbell_curl]
+rules:
+  - id: swing
+    fault: Swinging the body
+    cue: Keep your torso still - no swinging
+    metric: trunk_inclination
+    joints: [thorax, pelvis]
+    agg: range
+    max: 12
+    scale: 12
+    weight: 30
+    live: true
+  - id: elbow_drift
+    fault: Elbows drifting forward
+    cue: Pin your elbows to your sides
+    metric: arm_elevation_max
+    joints: [l_elbow, r_elbow]
+    agg: max
+    max: 40
+    scale: 25
+    weight: 25
+  - id: partial_top
+    fault: Not curling all the way up
+    cue: Squeeze all the way to the top
+    metric: elbow_flexion_max
+    agg: max
+    min: 110
+    scale: 25
+    weight: 15
+  - id: partial_bottom
+    fault: Not straightening the arm
+    cue: Lower all the way down
+    metric: elbow_flexion_max
+    agg: start
+    max: 40
+    scale: 25
+    weight: 15
+  - id: tempo
+    type: tempo
+    fault: Dropping the weight
+    cue: Lower slowly
+    phase: back                 # the lowering half of a curl
+    min: 0.8
+    scale: 0.5
+    weight: 15

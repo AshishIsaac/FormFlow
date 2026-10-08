@@ -1,0 +1,5 @@
+# PyTorch with CUDA 12.6 (bundled; only an NVIDIA driver >= 560 is needed). Ampere/Ada/Hopper/Blackwell.
+# The exact build (+cu126) is pinned so switching from the CPU profile really replaces the CPU build.
+--index-url https://download.pytorch.org/whl/cu126
+--extra-index-url https://pypi.org/simple
+torch==2.14.1+cu126

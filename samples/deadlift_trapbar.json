@@ -1,0 +1,22 @@
+{
+ "title": "Trap-bar deadlift (3 reps, crowded field)",
+ "exercise": "deadlift",
+ "video": "deadlift_trapbar.mp4",
+ "source": "https://commons.wikimedia.org/wiki/File:Army_Combat_Fitness_Test-_3_Repetition_Maximum_Deadlift_(MDL)_(Event_1).webm",
+ "license": "Public domain",
+ "license_url": "",
+ "author": "Army Combat Fitness Test",
+ "trim": {
+  "start_s": 41,
+  "duration_s": 26
+ },
+ "modifications": "trimmed, scaled to 720p, re-encoded (H.264), audio removed",
+ "annotated": "deadlift_trapbar_annotated.mp4",
+ "reps": 3,
+ "mean_score": 78.3,
+ "faults": [
+  "Incomplete lockout (3/3)",
+  "Hips shooting up first (1/3)"
+ ],
+ "note": "3 reps, score 78.3"
+}

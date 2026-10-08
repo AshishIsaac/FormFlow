@@ -1,0 +1,14 @@
+# docker compose up          -> web app on http://localhost:8780 (GPU)
+# docker compose run --rm formflow analyze /workspace/my_squat.mp4 -e squat
+services:
+  formflow:
+    build: { context: ., dockerfile: docker/Dockerfile }
+    image: formflow
+    ports: ["8780:8780"]
+    volumes: ["formflow-ws:/workspace"]
+    deploy:
+      resources:
+        reservations:
+          devices: [{ driver: nvidia, count: 1, capabilities: [gpu] }]
+volumes:
+  formflow-ws:

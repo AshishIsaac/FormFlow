@@ -1,0 +1,30 @@
+# One-time setup state (per machine): virtual environment, install log, remembered --home/--venv
+.venv/
+.setup/
+
+# Everything downloaded or produced: models, sessions, benchmark data (recreated by run.py)
+workspace/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Model weights and large media outside the curated samples
+*.onnx
+*.bin
+*.pth
+*.npz
+!tests/data/*.npz
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,43 @@
+# Dumbbell / plate front raise. Best camera view: side on or 45 degrees.
+name: front_raise
+display: Front raise
+posture: standing
+camera: Side on or 45 degrees, upper body in frame
+signal: arm_elevation
+reps: {prior: [15, 90], min_rom: 35}
+aliases: [frontraise, front_raises]
+rules:
+  - id: height
+    fault: Not raising to shoulder height
+    cue: Lift to shoulder height
+    metric: arm_elevation
+    agg: max
+    min: 75
+    scale: 25
+    weight: 25
+  - id: too_high
+    fault: Raising too high
+    cue: Stop at shoulder height
+    metric: arm_elevation
+    agg: max
+    max: 125
+    scale: 25
+    weight: 15
+  - id: swing
+    fault: Swinging the body
+    cue: Keep your torso still
+    metric: trunk_inclination
+    joints: [thorax, pelvis]
+    agg: range
+    max: 10
+    scale: 10
+    weight: 30
+    live: true
+  - id: elbows
+    fault: Bending the elbows
+    cue: Keep a soft but fixed elbow
+    metric: elbow_flexion
+    agg: max
+    max: 45
+    scale: 25
+    weight: 15

@@ -1,0 +1,1312 @@
+{
+ "quick": false,
+ "machine": {
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "cpu": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+  "torch": "2.14.1+cu126",
+  "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+  "onnxruntime": "1.25.1"
+ },
+ "date": "2026-10-07",
+ "results": [
+  {
+   "config": {
+    "name": "MotionBERT protocol (offline, full)",
+    "variant": "full",
+    "window": 243,
+    "causal": false,
+    "stride": 1,
+    "overlap": 0.0,
+    "flip": true,
+    "half": false,
+    "norm": "image",
+    "one_euro": null,
+    "one_euro_3d": null,
+    "zoom": 1.0,
+    "cameras": [
+     "54138969",
+     "55011271",
+     "58860488",
+     "60457274"
+    ],
+    "max_videos": null
+   },
+   "videos": 240,
+   "frames": 566920,
+   "mpjpe_mm": 37.42,
+   "pa_mpjpe_mm": 31.98,
+   "accel_mm": 0.99,
+   "angle_mae_deg": 7.0,
+   "angles": {
+    "knee_flexion_l": {
+     "mae": 6.48,
+     "median": 5.08,
+     "p90": 11.97
+    },
+    "knee_flexion_r": {
+     "mae": 6.9,
+     "median": 5.66,
+     "p90": 12.02
+    },
+    "hip_flexion_l": {
+     "mae": 3.59,
+     "median": 2.42,
+     "p90": 7.46
+    },
+    "hip_flexion_r": {
+     "mae": 3.64,
+     "median": 2.67,
+     "p90": 7.14
+    },
+    "elbow_flexion_l": {
+     "mae": 7.71,
+     "median": 4.53,
+     "p90": 17.63
+    },
+    "elbow_flexion_r": {
+     "mae": 8.35,
+     "median": 5.06,
+     "p90": 17.32
+    },
+    "arm_elevation_l": {
+     "mae": 3.96,
+     "median": 2.57,
+     "p90": 8.91
+    },
+    "arm_elevation_r": {
+     "mae": 4.12,
+     "median": 2.65,
+     "p90": 9.24
+    },
+    "trunk_inclination": {
+     "mae": 2.17,
+     "median": 1.66,
+     "p90": 4.55
+    },
+    "spine_flexion": {
+     "mae": 5.86,
+     "median": 4.67,
+     "p90": 11.95
+    },
+    "knee_valgus_l": {
+     "mae": 17.99,
+     "median": 7.12,
+     "p90": 25.73
+    },
+    "knee_valgus_r": {
+     "mae": 13.27,
+     "median": 4.99,
+     "p90": 21.09
+    }
+   },
+   "per_action_mpjpe": {
+    "Direction": 34.7,
+    "Discuss": 36.8,
+    "Eating": 37.0,
+    "Greet": 33.0,
+    "Phone": 39.7,
+    "Photo": 44.9,
+    "Pose": 36.1,
+    "Purchase": 33.3,
+    "Sitting": 49.1,
+    "SittingDown": 55.8,
+    "Smoke": 39.5,
+    "Wait": 37.1,
+    "Walk": 24.0,
+    "WalkDog": 35.4,
+    "WalkTwo": 25.0
+   },
+   "ms_per_frame": 2.467,
+   "device": "cuda",
+   "wall_s": 1411.0
+  },
+  {
+   "config": {
+    "name": "FormFlow offline - full",
+    "variant": "full",
+    "window": 243,
+    "causal": false,
+    "stride": 1,
+    "overlap": 0.5,
+    "flip": true,
+    "half": false,
+    "norm": "crop",
+    "one_euro": null,
+    "one_euro_3d": null,
+    "zoom": 1.0,
+    "cameras": [
+     "54138969",
+     "55011271",
+     "58860488",
+     "60457274"
+    ],
+    "max_videos": null
+   },
+   "videos": 240,
+   "frames": 566920,
+   "mpjpe_mm": 46.57,
+   "pa_mpjpe_mm": 36.74,
+   "accel_mm": 0.83,
+   "angle_mae_deg": 8.4,
+   "angles": {
+    "knee_flexion_l": {
+     "mae": 7.16,
+     "median": 5.3,
+     "p90": 13.35
+    },
+    "knee_flexion_r": {
+     "mae": 7.47,
+     "median": 5.88,
+     "p90": 13.46
+    },
+    "hip_flexion_l": {
+     "mae": 4.59,
+     "median": 2.7,
+     "p90": 9.7
+    },
+    "hip_flexion_r": {
+     "mae": 4.37,
+     "median": 2.75,
+     "p90": 8.87
+    },
+    "elbow_flexion_l": {
+     "mae": 8.48,
+     "median": 4.97,
+     "p90": 20.03
+    },
+    "elbow_flexion_r": {
+     "mae": 9.07,
+     "median": 5.43,
+     "p90": 19.56
+    },
+    "arm_elevation_l": {
+     "mae": 4.57,
+     "median": 2.7,
+     "p90": 10.76
+    },
+    "arm_elevation_r": {
+     "mae": 4.8,
+     "median": 2.87,
+     "p90": 11.02
+    },
+    "trunk_inclination": {
+     "mae": 2.75,
+     "median": 2.05,
+     "p90": 5.73
+    },
+    "spine_flexion": {
+     "mae": 6.03,
+     "median": 4.77,
+     "p90": 12.47
+    },
+    "knee_valgus_l": {
+     "mae": 22.41,
+     "median": 7.98,
+     "p90": 36.26
+    },
+    "knee_valgus_r": {
+     "mae": 19.05,
+     "median": 5.17,
+     "p90": 37.26
+    }
+   },
+   "per_action_mpjpe": {
+    "Direction": 36.1,
+    "Discuss": 40.8,
+    "Eating": 46.4,
+    "Greet": 35.6,
+    "Phone": 50.6,
+    "Photo": 48.6,
+    "Pose": 38.7,
+    "Purchase": 37.8,
+    "Sitting": 73.7,
+    "SittingDown": 98.0,
+    "Smoke": 48.7,
+    "Wait": 40.7,
+    "Walk": 30.6,
+    "WalkDog": 40.7,
+    "WalkTwo": 31.5
+   },
+   "ms_per_frame": 2.026,
+   "device": "cuda",
+   "wall_s": 1157.8
+  },
+  {
+   "config": {
+    "name": "FormFlow offline - lite",
+    "variant": "lite",
+    "window": 243,
+    "causal": false,
+    "stride": 1,
+    "overlap": 0.5,
+    "flip": true,
+    "half": false,
+    "norm": "crop",
+    "one_euro": null,
+    "one_euro_3d": null,
+    "zoom": 1.0,
+    "cameras": [
+     "54138969",
+     "55011271",
+     "58860488",
+     "60457274"
+    ],
+    "max_videos": null
+   },
+   "videos": 240,
+   "frames": 566920,
+   "mpjpe_mm": 46.24,
+   "pa_mpjpe_mm": 36.42,
+   "accel_mm": 0.82,
+   "angle_mae_deg": 8.24,
+   "angles": {
+    "knee_flexion_l": {
+     "mae": 6.97,
+     "median": 5.1,
+     "p90": 13.2
+    },
+    "knee_flexion_r": {
+     "mae": 7.34,
+     "median": 5.87,
+     "p90": 13.06
+    },
+    "hip_flexion_l": {
+     "mae": 4.55,
+     "median": 2.7,
+     "p90": 9.63
+    },
+    "hip_flexion_r": {
+     "mae": 4.39,
+     "median": 2.74,
+     "p90": 9.15
+    },
+    "elbow_flexion_l": {
+     "mae": 8.47,
+     "median": 4.98,
+     "p90": 19.57
+    },
+    "elbow_flexion_r": {
+     "mae": 9.08,
+     "median": 5.65,
+     "p90": 18.88
+    },
+    "arm_elevation_l": {
+     "mae": 4.59,
+     "median": 2.66,
+     "p90": 10.81
+    },
+    "arm_elevation_r": {
+     "mae": 4.91,
+     "median": 3.03,
+     "p90": 11.14
+    },
+    "trunk_inclination": {
+     "mae": 2.72,
+     "median": 2.03,
+     "p90": 5.72
+    },
+    "spine_flexion": {
+     "mae": 6.23,
+     "median": 4.96,
+     "p90": 12.73
+    },
+    "knee_valgus_l": {
+     "mae": 21.23,
+     "median": 7.33,
+     "p90": 35.46
+    },
+    "knee_valgus_r": {
+     "mae": 18.46,
+     "median": 4.93,
+     "p90": 36.54
+    }
+   },
+   "per_action_mpjpe": {
+    "Direction": 35.5,
+    "Discuss": 39.7,
+    "Eating": 46.4,
+    "Greet": 36.1,
+    "Phone": 49.4,
+    "Photo": 47.9,
+    "Pose": 38.0,
+    "Purchase": 38.2,
+    "Sitting": 73.1,
+    "SittingDown": 97.6,
+    "Smoke": 49.0,
+    "Wait": 41.0,
+    "Walk": 29.6,
+    "WalkDog": 41.4,
+    "WalkTwo": 30.7
+   },
+   "ms_per_frame": 1.088,
+   "device": "cuda",
+   "wall_s": 623.9
+  },
+  {
+   "config": {
+    "name": "FormFlow offline - full, with 2D One Euro",
+    "variant": "full",
+    "window": 243,
+    "causal": false,
+    "stride": 1,
+    "overlap": 0.5,
+    "flip": true,
+    "half": false,
+    "norm": "crop",
+    "one_euro": {
+     "min_cutoff": 1.5,
+     "beta": 0.1,
+     "d_cutoff": 1.0
+    },
+    "one_euro_3d": null,
+    "zoom": 1.0,
+    "cameras": [
+     "54138969",
+     "55011271",
+     "58860488",
+     "60457274"
+    ],
+    "max_videos": null
+   },
+   "videos": 240,
+   "frames": 566920,
+   "mpjpe_mm": 47.75,
+   "pa_mpjpe_mm": 37.72,
+   "accel_mm": 0.82,
+   "angle_mae_deg": 8.56,
+   "angles": {
+    "knee_flexion_l": {
+     "mae": 7.25,
+     "median": 5.33,
+     "p90": 13.64
+    },
+    "knee_flexion_r": {
+     "mae": 7.57,
+     "median": 5.94,
+     "p90": 13.83
+    },
+    "hip_flexion_l": {
+     "mae": 4.76,
+     "median": 2.84,
+     "p90": 10.01
+    },
+    "hip_flexion_r": {
+     "mae": 4.42,
+     "median": 2.75,
+     "p90": 9.1
+    },
+    "elbow_flexion_l": {
+     "mae": 8.81,
+     "median": 5.21,
+     "p90": 20.71
+    },
+    "elbow_flexion_r": {
+     "mae": 9.49,
+     "median": 5.69,
+     "p90": 20.72
+    },
+    "arm_elevation_l": {
+     "mae": 4.72,
+     "median": 2.83,
+     "p90": 11.14
+    },
+    "arm_elevation_r": {
+     "mae": 4.96,
+     "median": 3.0,
+     "p90": 11.37
+    },
+    "trunk_inclination": {
+     "mae": 2.8,
+     "median": 2.09,
+     "p90": 5.83
+    },
+    "spine_flexion": {
+     "mae": 5.96,
+     "median": 4.69,
+     "p90": 12.4
+    },
+    "knee_valgus_l": {
+     "mae": 22.72,
+     "median": 7.99,
+     "p90": 36.71
+    },
+    "knee_valgus_r": {
+     "mae": 19.25,
+     "median": 5.23,
+     "p90": 37.54
+    }
+   },
+   "per_action_mpjpe": {
+    "Direction": 37.4,
+    "Discuss": 42.2,
+    "Eating": 47.6,
+    "Greet": 36.6,
+    "Phone": 51.7,
+    "Photo": 50.0,
+    "Pose": 39.5,
+    "Purchase": 39.6,
+    "Sitting": 74.6,
+    "SittingDown": 99.5,
+    "Smoke": 49.7,
+    "Wait": 41.5,
+    "Walk": 31.5,
+    "WalkDog": 42.5,
+    "WalkTwo": 32.2
+   },
+   "ms_per_frame": 4.254,
+   "device": "cuda",
+   "wall_s": 2431.3
+  },
+  {
+   "config": {
+    "name": "live default - lite, 81 frames, 3D One Euro",
+    "variant": "lite",
+    "window": 81,
+    "causal": true,
+    "stride": 2,
+    "overlap": 0.0,
+    "flip": false,
+    "half": true,
+    "norm": "crop",
+    "one_euro": null,
+    "one_euro_3d": {
+     "min_cutoff": 1.5,
+     "beta": 0.01
+    },
+    "zoom": 1.0,
+    "cameras": [
+     "54138969"
+    ],
+    "max_videos": 20
+   },
+   "videos": 20,
+   "frames": 56781,
+   "mpjpe_mm": 65.47,
+   "pa_mpjpe_mm": 51.94,
+   "accel_mm": 1.63,
+   "angle_mae_deg": 9.21,
+   "angles": {
+    "knee_flexion_l": {
+     "mae": 8.52,
+     "median": 6.39,
+     "p90": 17.1
+    },
+    "knee_flexion_r": {
+     "mae": 8.86,
+     "median": 6.5,
+     "p90": 16.68
+    },
+    "hip_flexion_l": {
+     "mae": 5.85,
+     "median": 3.1,
+     "p90": 13.37
+    },
+    "hip_flexion_r": {
+     "mae": 6.21,
+     "median": 3.24,
+     "p90": 11.93
+    },
+    "elbow_flexion_l": {
+     "mae": 9.89,
+     "median": 6.47,
+     "p90": 22.33
+    },
+    "elbow_flexion_r": {
+     "mae": 11.83,
+     "median": 7.53,
+     "p90": 25.88
+    },
+    "arm_elevation_l": {
+     "mae": 5.83,
+     "median": 3.64,
+     "p90": 13.94
+    },
+    "arm_elevation_r": {
+     "mae": 6.72,
+     "median": 4.42,
+     "p90": 15.32
+    },
+    "trunk_inclination": {
+     "mae": 3.31,
+     "median": 2.4,
+     "p90": 6.64
+    },
+    "spine_flexion": {
+     "mae": 6.85,
+     "median": 5.36,
+     "p90": 13.13
+    },
+    "knee_valgus_l": {
+     "mae": 20.23,
+     "median": 7.21,
+     "p90": 34.64
+    },
+    "knee_valgus_r": {
+     "mae": 16.47,
+     "median": 4.57,
+     "p90": 27.35
+    }
+   },
+   "per_action_mpjpe": {
+    "Direction": 44.3,
+    "Discuss": 56.3,
+    "Eating": 41.4,
+    "Greet": 47.6,
+    "Phone": 66.5,
+    "Photo": 59.0,
+    "Pose": 43.8,
+    "Purchase": 52.0,
+    "Sitting": 118.4,
+    "SittingDown": 140.4,
+    "Smoke": 50.5
+   },
+   "ms_per_frame": 5.812,
+   "device": "cuda",
+   "wall_s": 331.5
+  },
+  {
+   "config": {
+    "name": "live - lite, 81 frames, 2D+3D One Euro",
+    "variant": "lite",
+    "window": 81,
+    "causal": true,
+    "stride": 2,
+    "overlap": 0.0,
+    "flip": false,
+    "half": true,
+    "norm": "crop",
+    "one_euro": {
+     "min_cutoff": 1.5,
+     "beta": 0.1,
+     "d_cutoff": 1.0
+    },
+    "one_euro_3d": {
+     "min_cutoff": 1.5,
+     "beta": 0.01
+    },
+    "zoom": 1.0,
+    "cameras": [
+     "54138969"
+    ],
+    "max_videos": 20
+   },
+   "videos": 20,
+   "frames": 56781,
+   "mpjpe_mm": 68.62,
+   "pa_mpjpe_mm": 54.31,
+   "accel_mm": 1.55,
+   "angle_mae_deg": 9.57,
+   "angles": {
+    "knee_flexion_l": {
+     "mae": 8.77,
+     "median": 6.66,
+     "p90": 18.12
+    },
+    "knee_flexion_r": {
+     "mae": 9.2,
+     "median": 6.73,
+     "p90": 17.4
+    },
+    "hip_flexion_l": {
+     "mae": 6.11,
+     "median": 3.36,
+     "p90": 14.34
+    },
+    "hip_flexion_r": {
+     "mae": 6.54,
+     "median": 3.44,
+     "p90": 12.88
+    },
+    "elbow_flexion_l": {
+     "mae": 10.53,
+     "median": 7.05,
+     "p90": 23.98
+    },
+    "elbow_flexion_r": {
+     "mae": 12.82,
+     "median": 8.06,
+     "p90": 28.1
+    },
+    "arm_elevation_l": {
+     "mae": 6.15,
+     "median": 3.87,
+     "p90": 14.69
+    },
+    "arm_elevation_r": {
+     "mae": 7.21,
+     "median": 4.77,
+     "p90": 16.54
+    },
+    "trunk_inclination": {
+     "mae": 3.48,
+     "median": 2.53,
+     "p90": 7.09
+    },
+    "spine_flexion": {
+     "mae": 6.84,
+     "median": 5.33,
+     "p90": 13.08
+    },
+    "knee_valgus_l": {
+     "mae": 20.68,
+     "median": 7.19,
+     "p90": 35.2
+    },
+    "knee_valgus_r": {
+     "mae": 16.52,
+     "median": 4.64,
+     "p90": 27.54
+    }
+   },
+   "per_action_mpjpe": {
+    "Direction": 48.1,
+    "Discuss": 60.4,
+    "Eating": 44.6,
+    "Greet": 51.4,
+    "Phone": 69.6,
+    "Photo": 62.1,
+    "Pose": 46.9,
+    "Purchase": 56.7,
+    "Sitting": 118.7,
+    "SittingDown": 142.2,
+    "Smoke": 54.1
+   },
+   "ms_per_frame": 5.812,
+   "device": "cuda",
+   "wall_s": 332.6
+  },
+  {
+   "config": {
+    "name": "live - full, 81 frames, 2D+3D One Euro",
+    "variant": "full",
+    "window": 81,
+    "causal": true,
+    "stride": 2,
+    "overlap": 0.0,
+    "flip": false,
+    "half": true,
+    "norm": "crop",
+    "one_euro": {
+     "min_cutoff": 1.5,
+     "beta": 0.1,
+     "d_cutoff": 1.0
+    },
+    "one_euro_3d": {
+     "min_cutoff": 1.5,
+     "beta": 0.01
+    },
+    "zoom": 1.0,
+    "cameras": [
+     "54138969"
+    ],
+    "max_videos": 20
+   },
+   "videos": 20,
+   "frames": 56781,
+   "mpjpe_mm": 68.55,
+   "pa_mpjpe_mm": 54.4,
+   "accel_mm": 1.55,
+   "angle_mae_deg": 9.66,
+   "angles": {
+    "knee_flexion_l": {
+     "mae": 8.66,
+     "median": 6.51,
+     "p90": 18.38
+    },
+    "knee_flexion_r": {
+     "mae": 9.28,
+     "median": 6.57,
+     "p90": 18.07
+    },
+    "hip_flexion_l": {
+     "mae": 6.11,
+     "median": 3.36,
+     "p90": 14.11
+    },
+    "hip_flexion_r": {
+     "mae": 6.4,
+     "median": 3.4,
+     "p90": 12.46
+    },
+    "elbow_flexion_l": {
+     "mae": 10.29,
+     "median": 6.81,
+     "p90": 23.91
+    },
+    "elbow_flexion_r": {
+     "mae": 12.91,
+     "median": 8.42,
+     "p90": 28.2
+    },
+    "arm_elevation_l": {
+     "mae": 5.97,
+     "median": 3.94,
+     "p90": 13.9
+    },
+    "arm_elevation_r": {
+     "mae": 7.24,
+     "median": 4.78,
+     "p90": 16.56
+    },
+    "trunk_inclination": {
+     "mae": 3.36,
+     "median": 2.41,
+     "p90": 6.91
+    },
+    "spine_flexion": {
+     "mae": 6.76,
+     "median": 5.16,
+     "p90": 13.25
+    },
+    "knee_valgus_l": {
+     "mae": 22.09,
+     "median": 8.13,
+     "p90": 32.4
+    },
+    "knee_valgus_r": {
+     "mae": 16.89,
+     "median": 4.93,
+     "p90": 29.32
+    }
+   },
+   "per_action_mpjpe": {
+    "Direction": 48.9,
+    "Discuss": 60.2,
+    "Eating": 45.4,
+    "Greet": 51.8,
+    "Phone": 70.6,
+    "Photo": 60.7,
+    "Pose": 47.4,
+    "Purchase": 56.8,
+    "Sitting": 118.2,
+    "SittingDown": 140.3,
+    "Smoke": 53.9
+   },
+   "ms_per_frame": 10.304,
+   "device": "cuda",
+   "wall_s": 587.9
+  },
+  {
+   "config": {
+    "name": "live - lite, 27 frames, 2D+3D One Euro",
+    "variant": "lite",
+    "window": 27,
+    "causal": true,
+    "stride": 2,
+    "overlap": 0.0,
+    "flip": false,
+    "half": true,
+    "norm": "crop",
+    "one_euro": {
+     "min_cutoff": 1.5,
+     "beta": 0.1,
+     "d_cutoff": 1.0
+    },
+    "one_euro_3d": {
+     "min_cutoff": 1.5,
+     "beta": 0.01
+    },
+    "zoom": 1.0,
+    "cameras": [
+     "54138969"
+    ],
+    "max_videos": 20
+   },
+   "videos": 20,
+   "frames": 56781,
+   "mpjpe_mm": 73.61,
+   "pa_mpjpe_mm": 57.62,
+   "accel_mm": 1.66,
+   "angle_mae_deg": 10.05,
+   "angles": {
+    "knee_flexion_l": {
+     "mae": 9.27,
+     "median": 6.88,
+     "p90": 19.14
+    },
+    "knee_flexion_r": {
+     "mae": 9.66,
+     "median": 6.92,
+     "p90": 18.14
+    },
+    "hip_flexion_l": {
+     "mae": 6.55,
+     "median": 3.49,
+     "p90": 15.41
+    },
+    "hip_flexion_r": {
+     "mae": 7.07,
+     "median": 3.68,
+     "p90": 14.37
+    },
+    "elbow_flexion_l": {
+     "mae": 11.19,
+     "median": 7.39,
+     "p90": 25.49
+    },
+    "elbow_flexion_r": {
+     "mae": 13.45,
+     "median": 8.47,
+     "p90": 30.21
+    },
+    "arm_elevation_l": {
+     "mae": 6.64,
+     "median": 4.1,
+     "p90": 16.58
+    },
+    "arm_elevation_r": {
+     "mae": 7.62,
+     "median": 4.96,
+     "p90": 18.07
+    },
+    "trunk_inclination": {
+     "mae": 3.65,
+     "median": 2.57,
+     "p90": 7.46
+    },
+    "spine_flexion": {
+     "mae": 6.97,
+     "median": 5.22,
+     "p90": 13.11
+    },
+    "knee_valgus_l": {
+     "mae": 21.05,
+     "median": 7.48,
+     "p90": 35.54
+    },
+    "knee_valgus_r": {
+     "mae": 17.5,
+     "median": 4.9,
+     "p90": 28.66
+    }
+   },
+   "per_action_mpjpe": {
+    "Direction": 49.0,
+    "Discuss": 64.6,
+    "Eating": 47.2,
+    "Greet": 54.0,
+    "Phone": 73.3,
+    "Photo": 68.3,
+    "Pose": 48.7,
+    "Purchase": 66.9,
+    "Sitting": 125.3,
+    "SittingDown": 155.6,
+    "Smoke": 56.7
+   },
+   "ms_per_frame": 1.905,
+   "device": "cuda",
+   "wall_s": 110.7
+  },
+  {
+   "config": {
+    "name": "live - lite, 81 frames, no filters",
+    "variant": "lite",
+    "window": 81,
+    "causal": true,
+    "stride": 2,
+    "overlap": 0.0,
+    "flip": false,
+    "half": true,
+    "norm": "crop",
+    "one_euro": null,
+    "one_euro_3d": null,
+    "zoom": 1.0,
+    "cameras": [
+     "54138969"
+    ],
+    "max_videos": 20
+   },
+   "videos": 20,
+   "frames": 56781,
+   "mpjpe_mm": 62.89,
+   "pa_mpjpe_mm": 50.23,
+   "accel_mm": 6.58,
+   "angle_mae_deg": 8.99,
+   "angles": {
+    "knee_flexion_l": {
+     "mae": 8.31,
+     "median": 6.28,
+     "p90": 16.1
+    },
+    "knee_flexion_r": {
+     "mae": 8.63,
+     "median": 6.43,
+     "p90": 15.57
+    },
+    "hip_flexion_l": {
+     "mae": 5.55,
+     "median": 2.8,
+     "p90": 12.73
+    },
+    "hip_flexion_r": {
+     "mae": 5.98,
+     "median": 3.03,
+     "p90": 11.29
+    },
+    "elbow_flexion_l": {
+     "mae": 9.42,
+     "median": 5.96,
+     "p90": 21.58
+    },
+    "elbow_flexion_r": {
+     "mae": 11.32,
+     "median": 6.98,
+     "p90": 24.82
+    },
+    "arm_elevation_l": {
+     "mae": 5.59,
+     "median": 3.29,
+     "p90": 13.82
+    },
+    "arm_elevation_r": {
+     "mae": 6.36,
+     "median": 4.01,
+     "p90": 14.62
+    },
+    "trunk_inclination": {
+     "mae": 3.17,
+     "median": 2.28,
+     "p90": 6.25
+    },
+    "spine_flexion": {
+     "mae": 6.89,
+     "median": 5.41,
+     "p90": 13.24
+    },
+    "knee_valgus_l": {
+     "mae": 20.16,
+     "median": 7.29,
+     "p90": 34.29
+    },
+    "knee_valgus_r": {
+     "mae": 16.55,
+     "median": 4.63,
+     "p90": 27.29
+    }
+   },
+   "per_action_mpjpe": {
+    "Direction": 40.9,
+    "Discuss": 53.4,
+    "Eating": 38.9,
+    "Greet": 44.3,
+    "Phone": 64.6,
+    "Photo": 56.5,
+    "Pose": 40.3,
+    "Purchase": 47.8,
+    "Sitting": 117.7,
+    "SittingDown": 139.9,
+    "Smoke": 47.6
+   },
+   "ms_per_frame": 5.806,
+   "device": "cuda",
+   "wall_s": 330.6
+  },
+  {
+   "config": {
+    "name": "live - lite, 81 frames, 2D One Euro only",
+    "variant": "lite",
+    "window": 81,
+    "causal": true,
+    "stride": 2,
+    "overlap": 0.0,
+    "flip": false,
+    "half": true,
+    "norm": "crop",
+    "one_euro": {
+     "min_cutoff": 1.5,
+     "beta": 0.1,
+     "d_cutoff": 1.0
+    },
+    "one_euro_3d": null,
+    "zoom": 1.0,
+    "cameras": [
+     "54138969"
+    ],
+    "max_videos": 20
+   },
+   "videos": 20,
+   "frames": 56781,
+   "mpjpe_mm": 65.08,
+   "pa_mpjpe_mm": 51.93,
+   "accel_mm": 5.76,
+   "angle_mae_deg": 9.26,
+   "angles": {
+    "knee_flexion_l": {
+     "mae": 8.44,
+     "median": 6.52,
+     "p90": 16.56
+    },
+    "knee_flexion_r": {
+     "mae": 8.85,
+     "median": 6.55,
+     "p90": 16.3
+    },
+    "hip_flexion_l": {
+     "mae": 5.7,
+     "median": 3.0,
+     "p90": 13.32
+    },
+    "hip_flexion_r": {
+     "mae": 6.19,
+     "median": 3.19,
+     "p90": 11.83
+    },
+    "elbow_flexion_l": {
+     "mae": 9.88,
+     "median": 6.43,
+     "p90": 22.56
+    },
+    "elbow_flexion_r": {
+     "mae": 12.19,
+     "median": 7.45,
+     "p90": 26.54
+    },
+    "arm_elevation_l": {
+     "mae": 5.81,
+     "median": 3.51,
+     "p90": 14.23
+    },
+    "arm_elevation_r": {
+     "mae": 6.72,
+     "median": 4.29,
+     "p90": 15.42
+    },
+    "trunk_inclination": {
+     "mae": 3.28,
+     "median": 2.36,
+     "p90": 6.52
+    },
+    "spine_flexion": {
+     "mae": 6.86,
+     "median": 5.38,
+     "p90": 13.12
+    },
+    "knee_valgus_l": {
+     "mae": 20.69,
+     "median": 7.28,
+     "p90": 34.98
+    },
+    "knee_valgus_r": {
+     "mae": 16.45,
+     "median": 4.63,
+     "p90": 27.34
+    }
+   },
+   "per_action_mpjpe": {
+    "Direction": 43.6,
+    "Discuss": 56.2,
+    "Eating": 41.3,
+    "Greet": 46.4,
+    "Phone": 66.8,
+    "Photo": 58.8,
+    "Pose": 42.3,
+    "Purchase": 51.1,
+    "Sitting": 117.7,
+    "SittingDown": 141.3,
+    "Smoke": 50.3
+   },
+   "ms_per_frame": 5.805,
+   "device": "cuda",
+   "wall_s": 331.5
+  },
+  {
+   "config": {
+    "name": "zoom 0.5x - image normalisation",
+    "variant": "lite",
+    "window": 243,
+    "causal": false,
+    "stride": 1,
+    "overlap": 0.0,
+    "flip": false,
+    "half": false,
+    "norm": "image",
+    "one_euro": null,
+    "one_euro_3d": null,
+    "zoom": 0.5,
+    "cameras": [
+     "54138969",
+     "55011271",
+     "58860488",
+     "60457274"
+    ],
+    "max_videos": 20
+   },
+   "videos": 20,
+   "frames": 75588,
+   "mpjpe_mm": 222.88,
+   "pa_mpjpe_mm": 66.5,
+   "accel_mm": 1.21,
+   "angle_mae_deg": 11.85,
+   "angles": {
+    "knee_flexion_l": {
+     "mae": 13.21,
+     "median": 7.92,
+     "p90": 33.38
+    },
+    "knee_flexion_r": {
+     "mae": 13.85,
+     "median": 6.88,
+     "p90": 38.74
+    },
+    "hip_flexion_l": {
+     "mae": 13.05,
+     "median": 8.31,
+     "p90": 32.87
+    },
+    "hip_flexion_r": {
+     "mae": 12.62,
+     "median": 6.96,
+     "p90": 33.43
+    },
+    "elbow_flexion_l": {
+     "mae": 13.48,
+     "median": 9.82,
+     "p90": 30.49
+    },
+    "elbow_flexion_r": {
+     "mae": 11.96,
+     "median": 7.84,
+     "p90": 27.79
+    },
+    "arm_elevation_l": {
+     "mae": 7.12,
+     "median": 4.15,
+     "p90": 18.03
+    },
+    "arm_elevation_r": {
+     "mae": 7.15,
+     "median": 4.48,
+     "p90": 17.24
+    },
+    "trunk_inclination": {
+     "mae": 6.62,
+     "median": 4.83,
+     "p90": 15.08
+    },
+    "spine_flexion": {
+     "mae": 10.92,
+     "median": 9.5,
+     "p90": 21.43
+    },
+    "knee_valgus_l": {
+     "mae": 17.51,
+     "median": 13.54,
+     "p90": 30.48
+    },
+    "knee_valgus_r": {
+     "mae": 14.72,
+     "median": 8.35,
+     "p90": 33.45
+    }
+   },
+   "per_action_mpjpe": {
+    "Direction": 230.4,
+    "Discuss": 221.7,
+    "Eating": 216.5
+   },
+   "ms_per_frame": 0.29,
+   "device": "cuda",
+   "wall_s": 23.1
+  },
+  {
+   "config": {
+    "name": "zoom 0.5x - crop normalisation",
+    "variant": "lite",
+    "window": 243,
+    "causal": false,
+    "stride": 1,
+    "overlap": 0.0,
+    "flip": false,
+    "half": false,
+    "norm": "crop",
+    "one_euro": null,
+    "one_euro_3d": null,
+    "zoom": 0.5,
+    "cameras": [
+     "54138969",
+     "55011271",
+     "58860488",
+     "60457274"
+    ],
+    "max_videos": 20
+   },
+   "videos": 20,
+   "frames": 75588,
+   "mpjpe_mm": 229.57,
+   "pa_mpjpe_mm": 33.78,
+   "accel_mm": 1.06,
+   "angle_mae_deg": 5.72,
+   "angles": {
+    "knee_flexion_l": {
+     "mae": 6.26,
+     "median": 5.89,
+     "p90": 10.99
+    },
+    "knee_flexion_r": {
+     "mae": 5.97,
+     "median": 5.16,
+     "p90": 10.42
+    },
+    "hip_flexion_l": {
+     "mae": 2.91,
+     "median": 2.13,
+     "p90": 6.2
+    },
+    "hip_flexion_r": {
+     "mae": 3.35,
+     "median": 2.32,
+     "p90": 6.77
+    },
+    "elbow_flexion_l": {
+     "mae": 7.92,
+     "median": 4.98,
+     "p90": 17.35
+    },
+    "elbow_flexion_r": {
+     "mae": 8.6,
+     "median": 5.83,
+     "p90": 17.35
+    },
+    "arm_elevation_l": {
+     "mae": 3.48,
+     "median": 2.41,
+     "p90": 7.71
+    },
+    "arm_elevation_r": {
+     "mae": 4.3,
+     "median": 3.12,
+     "p90": 9.65
+    },
+    "trunk_inclination": {
+     "mae": 2.4,
+     "median": 1.98,
+     "p90": 4.84
+    },
+    "spine_flexion": {
+     "mae": 7.3,
+     "median": 5.98,
+     "p90": 14.94
+    },
+    "knee_valgus_l": {
+     "mae": 8.89,
+     "median": 6.08,
+     "p90": 18.17
+    },
+    "knee_valgus_r": {
+     "mae": 7.32,
+     "median": 3.57,
+     "p90": 16.52
+    }
+   },
+   "per_action_mpjpe": {
+    "Direction": 232.4,
+    "Discuss": 228.3,
+    "Eating": 228.0
+   },
+   "ms_per_frame": 0.29,
+   "device": "cuda",
+   "wall_s": 23.2
+  }
+ ]
+}

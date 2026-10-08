@@ -1,0 +1,17 @@
+# Normalise line endings so a commit from Windows still runs on Linux / macOS.
+* text=auto
+*.sh text eol=lf
+docker/entrypoint.sh text eol=lf
+*.bat text eol=crlf
+*.py text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+
+# Media and model files are binary.
+*.mp4 binary
+*.webm binary
+*.jpg binary
+*.png binary
+*.onnx binary
+*.bin binary
+*.npz binary
